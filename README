@@ -24,7 +24,7 @@ Then, I used sublime text to save 'words' as UTF-8 format. After setting up my w
 	E.g.
 		{"aest"=>["east", "seat", "teas"]}
 
-jumble_solver.rb opens the dictionary_hash and looks for the first argument in the hash and then prints the corresponding words.
+jumble_solver.rb opens the dictionary_hash and looks for the first argument in the hash and then prints the corresponding words. With dictionary_hash, jumble_solver.rb does not have to sort and create the hash-lookup upon every call -- saving a few seconds each time.
 
 
 Before doing any of this, just for fun, I wrote jumble_solver_net which hits http://anagram-solver.net/ with a jumble argument. This site generates a list of words as solutions which then print to the terminal.
