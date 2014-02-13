@@ -11,10 +11,10 @@ My Solution:
 	$ ruby jumble_solver.rb <ARG>
 
 	E.g.
-		$ ruby jumble_solver.rb pan
+	    $ ruby jumble_solver.rb pan
 	 => $ ["pan", "nap"]
 
-First, I downloaded a popular dictionary scowl from http://wordlist.sourceforge.net/. I found word lists I wanted, english-words.10 - english-words.70 and american-words.10 - american-words.70. Turns out word lists with levels higher than 70 have misspelled and obscure words. With shell, I put all the dicitionary files into one.
+First, I downloaded a popular dictionary, scowl, from http://wordlist.sourceforge.net/. I found word lists I wanted, english-words.10 - english-words.70 and american-words.10 - american-words.70. Turns out word lists with levels higher than 70 have misspelled and obscure words. With shell, I put all the dicitionary files into one.
 
 	cat english-words.* > words
 	cat american-words.* > words
@@ -30,5 +30,5 @@ jumble_solver.rb opens the dictionary_hash and looks for the first argument in t
 Before doing any of this, just for fun, I wrote jumble_solver_net which hits http://anagram-solver.net/ with a jumble argument. This site generates a list of words as solutions which then print to the terminal.
 
 	E.g.
-			$ ruby jumble_solver_net.rb aeprs
+		    $ ruby jumble_solver_net.rb aeprs
 		 => $ ["Apers", "A. Pers.", "Apres", "ARPES", "Asper", "as per", "aspre", "Earps", "EPRAS", "ESAPR", "Espar", "paers", "pares", "parse", "paser", "pears", "peras", "persa", "pesar", "Praes", "prase", "preas", "presa", "rapes", "raspe", "reaps", "repas", "respa", "saper", "Sapre", "Separ", "SEPRA", "Serap", "Serpa", "spare", "spear", "spera", "Sprea"]
