@@ -1,0 +1,34 @@
+Code Challenge:
+Can you create a program to solve a word jumble? The program should accept a string as input, and then return a list of words that can be created using the submitted letters. For example, on the input "dog", the program should return a set of words including "god", "do", and "go".
+ 
+Please implement the program in a language of your choice, but refrain from using any combinatorics helper modules or imports (e.g. itertools in Python). In order to verify your words, just download an English word list. Then upload your program to GitHub or Gist, and send it back!
+
+My Solution:
+
+	To Run:
+	$ chmod 444 words
+	$ ruby make_dictionary_hash.rb
+	$ ruby jumble_solver.rb <ARG>
+
+	E.g.
+		$ ruby jumble_solver.rb pan
+	 => $ ["pan", "nap"]
+
+First, I downloaded a popular dictionary scowl from http://wordlist.sourceforge.net/. I found word lists I wanted, english-words.10 - english-words.70 and american-words.10 - american-words.70. Turns out word lists with levels higher than 70 have misspelled and obscure words. With shell, I put all the dicitionary files into one.
+
+	cat english-words.* > words
+	cat american-words.* > words
+
+Then, I used sublime text to save 'words' as UTF-8 format. After setting up my word list, I created a make_dictionary_hash.rb which converts my text dictionary into a serialized bit stream hash. The hash stored as dictionary_hash, has keys of all of the words from the word list sorted by character with the values set to arrays of the corresponding words.
+
+	E.g.
+		{"aest"=>["east", "seat", "teas"]}
+
+jumble_solver.rb opens the dictionary_hash and looks for the first argument in the hash and then prints the corresponding words.
+
+
+Before doing any of this, just for fun, I wrote jumble_solver_net which hits http://anagram-solver.net/ with a jumble argument. This site generates a list of words as solutions which then print to the terminal.
+
+	E.g.
+			$ ruby jumble_solver_net.rb aeprs
+		 => $ ["Apers", "A. Pers.", "Apres", "ARPES", "Asper", "as per", "aspre", "Earps", "EPRAS", "ESAPR", "Espar", "paers", "pares", "parse", "paser", "pears", "peras", "persa", "pesar", "Praes", "prase", "preas", "presa", "rapes", "raspe", "reaps", "repas", "respa", "saper", "Sapre", "Separ", "SEPRA", "Serap", "Serpa", "spare", "spear", "spera", "Sprea"]
